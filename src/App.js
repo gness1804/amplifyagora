@@ -1,7 +1,11 @@
 import React from 'react';
 import { Auth, Hub } from 'aws-amplify';
 import { Authenticator, AmplifyTheme } from 'aws-amplify-react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
+import HomePage from './pages/HomePage';
+import ProfilePage from './pages/ProfilePage';
+import MarketPage from './pages/MarketPage';
 
 class App extends React.Component {
   constructor(props) {
@@ -61,7 +65,20 @@ class App extends React.Component {
     };
     const { user } = this.state;
     return user ? (
-      <div>I should only appear if user is logged in.</div>
+      <Router>
+        <>
+          <div className="app-container">
+            <Route exact path="/" component={HomePage} />
+            <Route path="/profile" component={ProfilePage} />
+            <Route
+              path="/markets/:marketId"
+              component={({ match }) => (
+                <MarketPage marketId={match.params.marketId} />
+              )}
+            />
+          </div>
+        </>
+      </Router>
     ) : (
       <Authenticator theme={theme} />
     );
