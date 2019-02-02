@@ -1,30 +1,8 @@
 import React from 'react';
 import { Auth, Hub } from 'aws-amplify';
 import { Authenticator, AmplifyTheme } from 'aws-amplify-react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import HomePage from './pages/HomePage';
-import ProfilePage from './pages/ProfilePage';
-import MarketPage from './pages/MarketPage';
-
-function RoutingComponent() {
-  return (
-    <Router>
-      <>
-        <div className="app-container">
-          <Route exact path="/" component={HomePage} />
-          <Route path="/profile" component={ProfilePage} />
-          <Route
-            path="/markets/:marketId"
-            component={({ match }) => (
-              <MarketPage marketId={match.params.marketId} />
-            )}
-          />
-        </div>
-      </>
-    </Router>
-  );
-}
+import RoutingComponent from './components/RoutingComponent';
 
 class App extends React.Component {
   constructor(props) {
@@ -87,5 +65,4 @@ class App extends React.Component {
   }
 }
 
-// export default withAuthenticator(App, true, [], null, theme);
 export default App;
