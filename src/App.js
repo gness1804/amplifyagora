@@ -7,6 +7,25 @@ import HomePage from './pages/HomePage';
 import ProfilePage from './pages/ProfilePage';
 import MarketPage from './pages/MarketPage';
 
+function RoutingComponent() {
+  return (
+    <Router>
+      <>
+        <div className="app-container">
+          <Route exact path="/" component={HomePage} />
+          <Route path="/profile" component={ProfilePage} />
+          <Route
+            path="/markets/:marketId"
+            component={({ match }) => (
+              <MarketPage marketId={match.params.marketId} />
+            )}
+          />
+        </div>
+      </>
+    </Router>
+  );
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -64,24 +83,7 @@ class App extends React.Component {
       },
     };
     const { user } = this.state;
-    return user ? (
-      <Router>
-        <>
-          <div className="app-container">
-            <Route exact path="/" component={HomePage} />
-            <Route path="/profile" component={ProfilePage} />
-            <Route
-              path="/markets/:marketId"
-              component={({ match }) => (
-                <MarketPage marketId={match.params.marketId} />
-              )}
-            />
-          </div>
-        </>
-      </Router>
-    ) : (
-      <Authenticator theme={theme} />
-    );
+    return user ? <RoutingComponent /> : <Authenticator theme={theme} />;
   }
 }
 
