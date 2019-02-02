@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 // import { Notification, Message } from "element-react";
 
 const PayButton = () => {
