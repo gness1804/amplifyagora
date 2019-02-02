@@ -34,6 +34,7 @@ module.exports = {
     'no-restricted-syntax': 'off',
     'no-underscore-dangle': 'off',
     'no-unused-vars': 'warn',
+    'arrow-parens': 'off',
     // React-specific rules: delete if not using React
     'react/prefer-stateless-function': 'off',
     'react/jsx-filename-extension': 'off',
