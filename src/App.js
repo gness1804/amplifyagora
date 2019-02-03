@@ -61,7 +61,11 @@ class App extends React.Component {
       },
     };
     const { user } = this.state;
-    return user ? <RoutingComponent /> : <Authenticator theme={theme} />;
+    return user ? (
+      <RoutingComponent user={user} />
+    ) : (
+      <Authenticator theme={theme} />
+    );
   }
 }
 

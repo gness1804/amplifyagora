@@ -1,13 +1,16 @@
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import React from 'react';
 import HomePage from '../pages/HomePage';
 import ProfilePage from '../pages/ProfilePage';
 import MarketPage from '../pages/MarketPage';
+import Navbar from './Navbar';
 
-function RoutingComponent() {
+function RoutingComponent({ user }) {
   return (
     <Router>
       <>
+        <Navbar user={user} />
         <div className="app-container">
           <Route exact path="/" component={HomePage} />
           <Route path="/profile" component={ProfilePage} />
@@ -24,3 +27,7 @@ function RoutingComponent() {
 }
 
 export default RoutingComponent;
+
+RoutingComponent.propTypes = {
+  user: PropTypes.shape({}).isRequired,
+};
