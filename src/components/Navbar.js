@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import content from '../utils/content';
 
-const Navbar = ({ user }) => (
+const Navbar = ({ user, handleSignOut }) => (
   <Nav mode="horizontal" theme="dark" defaultActive="1">
     <div className="nav-container">
       <Nav.Item index="1">
@@ -33,7 +33,9 @@ const Navbar = ({ user }) => (
           </NavLink>
         </Nav.Item>
         <Nav.Item index="4">
-          <Button type="warning">{content.Navbar.signOutText}</Button>
+          <Button type="warning" onClick={handleSignOut}>
+            {content.Navbar.signOutText}
+          </Button>
         </Nav.Item>
       </div>
     </div>
@@ -44,4 +46,5 @@ export default Navbar;
 
 Navbar.propTypes = {
   user: PropTypes.shape({}).isRequired,
+  handleSignOut: PropTypes.func.isRequired,
 };

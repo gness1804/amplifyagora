@@ -6,11 +6,11 @@ import ProfilePage from '../pages/ProfilePage';
 import MarketPage from '../pages/MarketPage';
 import Navbar from './Navbar';
 
-function RoutingComponent({ user }) {
+function RoutingComponent({ user, handleSignOut }) {
   return (
     <Router>
       <>
-        <Navbar user={user} />
+        <Navbar user={user} handleSignOut={handleSignOut} />
         <div className="app-container">
           <Route exact path="/" component={HomePage} />
           <Route path="/profile" component={ProfilePage} />
@@ -30,4 +30,5 @@ export default RoutingComponent;
 
 RoutingComponent.propTypes = {
   user: PropTypes.shape({}).isRequired,
+  handleSignOut: PropTypes.func.isRequired,
 };

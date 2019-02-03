@@ -45,6 +45,14 @@ class App extends React.Component {
     /* eslint-enable consistent-return */
   };
 
+  handleSignOut = async () => {
+    try {
+      await Auth.signOut();
+    } catch (err) {
+      throw new Error(`There was a problem signing the user out: ${err}`);
+    }
+  };
+
   render() {
     const theme = {
       ...AmplifyTheme,
@@ -62,7 +70,7 @@ class App extends React.Component {
     };
     const { user } = this.state;
     return user ? (
-      <RoutingComponent user={user} />
+      <RoutingComponent user={user} handleSignOut={this.handleSignOut} />
     ) : (
       <Authenticator theme={theme} />
     );
