@@ -207,10 +207,12 @@ body {
   align-items: center;
 }
 
-.market-title-button {
+button.market-title-button {
   padding-left: 0.5em !important;
   color: #f90 !important;
   font-size: 30px !important;
+  border: none;
+  background-color: inherit;
 }
 
 @media (min-width: 640px) {

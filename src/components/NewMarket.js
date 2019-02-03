@@ -1,12 +1,32 @@
 import React from 'react';
-// prettier-ignore
-// import { Form, Button, Dialog, Input, Select, Notification } from 'element-react'
+import {
+  Form,
+  Button,
+  Dialog,
+  Input,
+  Select,
+  Notification,
+} from 'element-react';
+import content from '../utils/content';
 
 class NewMarket extends React.Component {
-  state = {};
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
 
   render() {
-    return <div>NewMarket</div>;
+    return (
+      <>
+        <div className="market-header">
+          <h1 className="market-title">
+            {content.NewMarket.title}
+            <Button type="edit" icon="edit" className="market-title-button" />
+          </h1>
+        </div>
+      </>
+    );
   }
 }
 

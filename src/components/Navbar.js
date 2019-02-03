@@ -14,7 +14,7 @@ const Navbar = ({ user, handleSignOut }) => (
               src="https://icon.now.sh/account_balance/f90"
               alt="Home icon."
             />
-            &nbsp; {content.Navbar.mainTitle}
+            &nbsp; {content.Navbar.title}
           </span>
         </NavLink>
       </Nav.Item>

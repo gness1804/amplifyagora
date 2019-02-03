@@ -1,9 +1,12 @@
 const content = {
   Navbar: {
-    mainTitle: 'Amplify Agora',
+    title: 'Amplify Agora',
     userGreeting: 'Hello, ',
     profileText: 'Profile',
     signOutText: 'Sign Out',
+  },
+  NewMarket: {
+    title: 'Create Your Marketplace',
   },
 };
 
