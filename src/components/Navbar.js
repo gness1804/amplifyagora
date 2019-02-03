@@ -14,7 +14,7 @@ const Navbar = ({ user }) => (
               src="https://icon.now.sh/account_balance/f90"
               alt="Home icon."
             />
-            {content.RoutingComponent.mainTitle}
+            &nbsp; {content.Navbar.mainTitle}
           </span>
         </NavLink>
       </Nav.Item>
@@ -22,9 +22,18 @@ const Navbar = ({ user }) => (
       <div className="nav-items">
         <Nav.Item index="2">
           <span className="app-user">
-            {content.RoutingComponent.userGreeting}
+            {content.Navbar.userGreeting}
             {user.username}
           </span>
+        </Nav.Item>
+        <Nav.Item index="3">
+          <NavLink to="/profile" className="nav-link" title="Profile">
+            <Icon name="setting" />
+            {content.Navbar.profileText}
+          </NavLink>
+        </Nav.Item>
+        <Nav.Item index="4">
+          <Button type="warning">{content.Navbar.signOutText}</Button>
         </Nav.Item>
       </div>
     </div>

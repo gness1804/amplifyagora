@@ -1,8 +1,9 @@
 const content = {
-  RoutingComponent: {
+  Navbar: {
     mainTitle: 'Amplify Agora',
     userGreeting: 'Hello, ',
     profileText: 'Profile',
+    signOutText: 'Sign Out',
   },
 };
 
