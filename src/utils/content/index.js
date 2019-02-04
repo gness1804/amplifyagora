@@ -7,6 +7,10 @@ const content = {
   },
   NewMarket: {
     title: 'Create Your Marketplace',
+    addMarketFormTitle: 'Add Market Name',
+    namePlaceholder: 'Market Name',
+    dialogCancelText: 'Cancel',
+    addButtonText: 'Add',
   },
 };
 
