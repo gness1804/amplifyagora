@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import { Auth, Hub } from 'aws-amplify';
 import { Authenticator, AmplifyTheme } from 'aws-amplify-react';
 import './App.css';
 import RoutingComponent from './components/RoutingComponent';
+
+export const UserContext = createContext();
 
 class App extends React.Component {
   constructor(props) {
@@ -69,8 +71,11 @@ class App extends React.Component {
       },
     };
     const { user } = this.state;
+
     return user ? (
-      <RoutingComponent user={user} handleSignOut={this.handleSignOut} />
+      <UserContext.Provider value={{ user }}>
+        <RoutingComponent user={user} handleSignOut={this.handleSignOut} />
+      </UserContext.Provider>
     ) : (
       <Authenticator theme={theme} />
     );
