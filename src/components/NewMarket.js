@@ -23,6 +23,7 @@ class NewMarket extends React.Component {
       allTags,
       selectedTags: [],
       name: '',
+      options: [],
     };
   }
 
@@ -53,7 +54,13 @@ class NewMarket extends React.Component {
   };
 
   // filter the tags based on user input.
-  handleFilterTags = () => {};
+  handleFilterTags = query => {
+    const { allTags: tags } = this.state;
+    const options = tags
+      .map(tag => ({ value: tag, label: tag }))
+      .filter(tag => tag.label.toLowerCase().includes(query.toLowerCase()));
+    this.setState({ options });
+  };
 
   handleAddMarket = async user => {
     const { username: owner } = user;
