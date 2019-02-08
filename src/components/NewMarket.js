@@ -65,19 +65,21 @@ class NewMarket extends React.Component {
   handleAddMarket = async user => {
     const { username: owner } = user;
     try {
-      const { name } = this.state;
+      const { name, selectedTags } = this.state;
       this.hideAddMarketDialogFunc();
       const input = {
         name,
+        tags: selectedTags,
         owner,
       };
       const result = await API.graphql(
         graphqlOperation(createMarket, { input }),
       );
+      /* eslint-disable no-console */
       console.info(`Created market with id: ${result.data.createMarket.id}`);
       this.clearName();
+      this.clearSelectedTags();
     } catch (err) {
-      /* eslint-disable no-console */
       console.error(`Error adding new market: ${JSON.stringify(err)}`);
       /* eslint-enable no-console */
       Notification.error({
@@ -87,8 +89,12 @@ class NewMarket extends React.Component {
     }
   };
 
+  clearSelectedTags = () => {
+    this.setState({ selectedTags: [] });
+  };
+
   render() {
-    const { showAddMarketDialog, name } = this.state;
+    const { showAddMarketDialog, options, name } = this.state;
     const {
       title,
       addMarketFormTitle,
@@ -98,6 +104,9 @@ class NewMarket extends React.Component {
       addTagLabel,
       addTagPlaceholder,
     } = content.NewMarket;
+    const optionsElement = options.map(opt => (
+      <Select.Option key={opt.value} value={opt.value} label={opt.label} />
+    ));
 
     return (
       <UserContext.Consumer>
@@ -142,7 +151,9 @@ class NewMarket extends React.Component {
                       }
                       remoteMethod={this.handleFilterTags}
                       remote
-                    />
+                    >
+                      {optionsElement}
+                    </Select>
                   </Form.Item>
                 </Form>
               </Dialog.Body>
