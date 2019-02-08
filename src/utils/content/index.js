@@ -11,6 +11,15 @@ const content = {
     namePlaceholder: 'Market Name',
     dialogCancelText: 'Cancel',
     addButtonText: 'Add',
+    tags: [
+      'Arts',
+      'Technology',
+      'Pets & Animals',
+      'Household & Cooking',
+      'Sports & Leisure',
+    ],
+    addTagLabel: 'Add Tags',
+    addTagPlaceholder: 'Market Tags',
   },
 };
 
