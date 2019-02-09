@@ -2,21 +2,25 @@ html,
 body {
   margin: 0;
   background-color: #f4f8fb;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .app-container {
-  padding: 1em 5em 2em 5em;
+  padding: 1em 5em 2em;
 }
 
 @media (max-width: 550px) {
+  /*prettier-ignore*/
+
   .app-container {
     padding: 1em 3em;
   }
 }
 
 @media (max-width: 400px) {
+  /*prettier-ignore*/
+
   .app-container {
     padding: 1em 0.5em;
   }
@@ -81,7 +85,7 @@ body {
 .app-title {
   font-weight: 300;
   font-size: 1.5rem;
-  color: #f90;
+  color: #ff9900;
   margin: -3px;
 }
 
@@ -107,7 +111,7 @@ body {
 }
 
 .text-green {
-  color: green;
+  color: #008000;
 }
 
 .message {
@@ -115,7 +119,7 @@ body {
 }
 
 .error {
-  color: red;
+  color: #ff0000;
 }
 
 .progress {
@@ -128,6 +132,8 @@ body {
 
 /* center items in navbar if screen width < 520px */
 @media (max-width: 520px) {
+  /*prettier-ignore*/
+
   .nav-container {
     justify-content: center;
   }
@@ -135,13 +141,17 @@ body {
 
 /* push items in navbar to opposite ends if screen width > 520px */
 @media (min-width: 520px) {
+  /*prettier-ignore*/
+
   .nav-container {
     justify-content: space-between;
   }
 }
 
-/* remove the navbar item that contains the Greetings text if width > 672px */
+/* hide the navbar item that contains the Greetings text if width > 672px */
 @media (max-width: 690px) {
+  /*prettier-ignore*/
+
   .nav-items .el-menu-item:nth-child(1) {
     display: none !important;
   }
@@ -168,7 +178,7 @@ body {
 
 .link {
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700;
   margin-right: 5px;
   color: var(--lightSquidInk);
 }
@@ -192,13 +202,15 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  /* stylelint-disable */
   flex-wrap: wrap;
+  /* stylelint-enable */
 }
 
 .market-title {
   font-weight: 300;
   border-radius: 10px;
-  text-decoration: #f90 solid underline;
+  text-decoration: #ff990090 solid underline;
   text-underline-position: under;
   text-decoration-style: wavy;
   font-size: 2.5rem;
@@ -209,47 +221,61 @@ body {
 
 .market-title-button {
   padding-left: 0.5em !important;
-  color: #f90 !important;
+  color: #ff9900 !important;
   font-size: 30px !important;
 }
 
 @media (min-width: 640px) {
+  /*prettier-ignore*/
+
   .market-title {
     font-size: 3rem;
   }
 }
 
 @media (max-width: 540px) {
+  /*prettier-ignore*/
+
   .market-title {
     font-size: 2.1rem;
   }
+
   .market-title-button {
     font-size: 25px !important;
   }
 }
 
 @media (max-width: 500px) {
+  /*prettier-ignore*/
+
   .market-title {
     font-size: 1.8rem;
   }
+
   .market-title-button {
     font-size: 25px !important;
   }
 }
 
 @media (max-width: 420px) {
+  /*prettier-ignore*/
+
   .market-title {
     font-size: 1.6rem;
   }
+
   .market-title-button {
     font-size: 20px !important;
   }
 }
 
 @media (max-width: 350px) {
+  /*prettier-ignore*/
+
   .market-title {
     font-size: 1.5rem;
   }
+
   .market-title-button {
     font-size: 15px !important;
   }
@@ -287,6 +313,8 @@ body {
 }
 
 @media (max-width: 470px) {
+  /*prettier-ignore*/
+
   .hide-xs {
     display: none;
   }
