@@ -1,10 +1,14 @@
 import React from 'react';
+import Amplify from 'aws-amplify';
 import ReactDOM from 'react-dom';
 import App from './App';
+import awsExports from './aws-exports';
 import * as serviceWorker from './serviceWorker';
 
-// Bring in default Element React theme
 import 'element-theme-default';
+
+// Bring in default Element React theme
+Amplify.configure(awsExports);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
