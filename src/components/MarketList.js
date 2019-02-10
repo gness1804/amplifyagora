@@ -29,6 +29,14 @@ const MarketList = () => {
         const { items: markets } = data.listMarkets;
         return (
           <>
+            <h2 className="header">
+              <img
+                src={content.MarketList.headerLinkIcon}
+                alt={content.MarketList.headerLinkIconAltText}
+                className="large-icon"
+              />
+              {content.MarketList.headerText}
+            </h2>
             {markets.map(market => (
               <div key={market.id} className="my-2">
                 <Card bodyStyle={styles.MarketList.cardBodyStyle}>

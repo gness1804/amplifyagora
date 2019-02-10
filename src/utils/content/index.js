@@ -26,6 +26,9 @@ const content = {
   MarketList: {
     shoppingCartLink: 'https://icon.now.sh/shopping_cart/f60"',
     shoppingCartLinkAltText: 'Shopping Cart',
+    headerLinkIcon: 'https://icon.now.sh/store_mall_directory/527FFF',
+    headerLinkIconAltText: 'Store icon',
+    headerText: 'Markets',
   },
 };
 
