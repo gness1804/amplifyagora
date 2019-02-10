@@ -17,6 +17,20 @@ const styles = {
       },
     },
   },
+  MarketList: {
+    cardBodyStyle: {
+      padding: '0.7em',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'spaceBetween',
+    },
+    cardItemsNumberStyle: {
+      color: 'var(--darkAmazonOrange)',
+    },
+    cardOwnerMssgStyle: {
+      color: 'var(--lightSquidInk)',
+    },
+  },
 };
 
 export default styles;

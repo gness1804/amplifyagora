@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 import { Auth, Hub } from 'aws-amplify';
-import { Authenticator, AmplifyTheme } from 'aws-amplify-react';
+import { Authenticator } from 'aws-amplify-react';
 import './App.css';
 import RoutingComponent from './components/RoutingComponent';
 import styles from './styling';

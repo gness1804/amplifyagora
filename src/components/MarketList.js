@@ -8,8 +8,11 @@ import {
   Icon,
   Tag,
 } from 'element-react';
+import { Link } from 'react-router-dom';
 import { listMarkets } from '../graphql/queries';
 import Error from './Error';
+import styles from '../styling';
+import content from '../utils/content';
 
 const MarketList = () => {
   return (
@@ -27,8 +30,35 @@ const MarketList = () => {
         return (
           <>
             {markets.map(market => (
-              // TODO: replace with actual markup
-              <div>{market.name}</div>
+              <div key={market.id} className="my-2">
+                <Card bodyStyle={styles.MarketList.cardBodyStyle}>
+                  <>
+                    <span className="flex">
+                      <Link className="link" to={`/markets/${market.id}`}>
+                        {market.name}
+                      </Link>
+                      {market.products && market.products.items && (
+                        <span style={styles.MarketList.cardItemsNumberStyle}>
+                          Total items: {market.products.items.length}
+                        </span>
+                      )}
+                      <img
+                        src={content.MarketList.shoppingCartLink}
+                        alt={content.MarketList.shoppingCartLinkAltText}
+                      />
+                    </span>
+                    <div style={styles.MarketList.cardOwnerMssgStyle}>
+                      {market.owner}
+                    </div>
+                    {market.tags &&
+                      market.tags.map(tag => (
+                        <Tag key={tag} type="danger" className="mx-1">
+                          {tag}
+                        </Tag>
+                      ))}
+                  </>
+                </Card>
+              </div>
             ))}
           </>
         );

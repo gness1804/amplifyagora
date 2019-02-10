@@ -11,8 +11,8 @@ const Navbar = ({ user, handleSignOut }) => (
         <NavLink to="/" className="nav-link" title="Home">
           <span className="app-title">
             <img
-              src="https://icon.now.sh/account_balance/f90"
-              alt="Home icon."
+              src={content.Navbar.homeIconLink}
+              alt={content.Navbar.homeIconAltText}
             />
             &nbsp; {content.Navbar.title}
           </span>

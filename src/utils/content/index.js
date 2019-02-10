@@ -4,6 +4,8 @@ const content = {
     userGreeting: 'Hello, ',
     profileText: 'Profile',
     signOutText: 'Sign Out',
+    homeIconLink: 'https://icon.now.sh/account_balance/f90"',
+    homeIconAltText: 'Home icon.',
   },
   NewMarket: {
     title: 'Create Your Marketplace',
@@ -20,6 +22,10 @@ const content = {
     ],
     addTagLabel: 'Add Tags',
     addTagPlaceholder: 'Market Tags',
+  },
+  MarketList: {
+    shoppingCartLink: 'https://icon.now.sh/shopping_cart/f60"',
+    shoppingCartLinkAltText: 'Shopping Cart',
   },
 };
 
