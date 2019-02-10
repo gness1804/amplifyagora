@@ -3,6 +3,7 @@ import { Auth, Hub } from 'aws-amplify';
 import { Authenticator, AmplifyTheme } from 'aws-amplify-react';
 import './App.css';
 import RoutingComponent from './components/RoutingComponent';
+import styles from './styling';
 
 export const UserContext = createContext();
 
@@ -56,20 +57,6 @@ class App extends React.Component {
   };
 
   render() {
-    const theme = {
-      ...AmplifyTheme,
-      button: {
-        ...AmplifyTheme.button,
-        backgroundColor: '#FF9900',
-        fontWeight: 600,
-      },
-      navBar: {
-        ...AmplifyTheme.nav,
-        backgroundColor: '#FFC66F',
-        display: 'flex',
-        justifyContent: 'space-around',
-      },
-    };
     const { user } = this.state;
 
     return user ? (
@@ -77,7 +64,7 @@ class App extends React.Component {
         <RoutingComponent user={user} handleSignOut={this.handleSignOut} />
       </UserContext.Provider>
     ) : (
-      <Authenticator theme={theme} />
+      <Authenticator theme={styles.App.theme} />
     );
   }
 }
