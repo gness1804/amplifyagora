@@ -13,10 +13,28 @@ import { listMarkets } from '../graphql/queries';
 import Error from './Error';
 import styles from '../styling';
 import content from '../utils/content';
+import { onCreateMarket } from '../graphql/subscriptions';
 
 const MarketList = () => {
+  const onNewMarket = (prevQuery, newData) => {
+    const { items: oldMarkets } = prevQuery.listMarkets;
+    const newMarket = newData.onCreateMarket;
+    const newMarkets = [newMarket, ...oldMarkets];
+    return {
+      ...prevQuery,
+      listMarkets: {
+        ...prevQuery.listMarkets,
+        items: newMarkets,
+      },
+    };
+  };
+
   return (
-    <Connect query={graphqlOperation(listMarkets)}>
+    <Connect
+      query={graphqlOperation(listMarkets)}
+      subscription={graphqlOperation(onCreateMarket)}
+      onSubscriptionMsg={onNewMarket}
+    >
       {({ data, loading, errors }) => {
         // check if there are any errors or in loading state or markets do not exist in data
         if (errors.length > 0) {
