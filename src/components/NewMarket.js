@@ -103,6 +103,10 @@ class NewMarket extends React.Component {
       addButtonText,
       addTagLabel,
       addTagPlaceholder,
+      searchInputPlaceholder,
+      searchInputIcon,
+      searchButtonText,
+      searchButtonIcon,
     } = content.NewMarket;
     const optionsElement = options.map(opt => (
       <Select.Option key={opt.value} value={opt.value} label={opt.label} />
@@ -122,6 +126,20 @@ class NewMarket extends React.Component {
                   onClick={this.showAddMarketDialogFunc}
                 />
               </h1>
+
+              <Form inline>
+                <Form.Item>
+                  <Input
+                    placeholder={searchInputPlaceholder}
+                    icon={searchInputIcon}
+                  />
+                </Form.Item>
+                <Form.Item>
+                  <Button type="info" icon={searchButtonIcon}>
+                    {searchButtonText}
+                  </Button>
+                </Form.Item>
+              </Form>
             </div>
 
             <Dialog

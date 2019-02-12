@@ -22,6 +22,10 @@ const content = {
     ],
     addTagLabel: 'Add Tags',
     addTagPlaceholder: 'Market Tags',
+    searchInputPlaceholder: 'Search Markets...',
+    searchInputIcon: 'circle-cross',
+    searchButtonText: 'Search',
+    searchButtonIcon: 'search',
   },
   MarketList: {
     shoppingCartLink: 'https://icon.now.sh/shopping_cart/f60"',
