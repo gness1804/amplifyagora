@@ -22,10 +22,6 @@ const content = {
     ],
     addTagLabel: 'Add Tags',
     addTagPlaceholder: 'Market Tags',
-    searchInputPlaceholder: 'Search Markets...',
-    searchInputIcon: 'circle-cross',
-    searchButtonText: 'Search',
-    searchButtonIcon: 'search',
   },
   MarketList: {
     shoppingCartLink: 'https://icon.now.sh/shopping_cart/f60"',
@@ -33,6 +29,12 @@ const content = {
     headerLinkIcon: 'https://icon.now.sh/store_mall_directory/527FFF',
     headerLinkIconAltText: 'Store icon',
     headerText: 'Markets',
+  },
+  Search: {
+    searchInputPlaceholder: 'Search Markets...',
+    searchInputIcon: 'circle-cross',
+    searchButtonText: 'Search',
+    searchButtonIcon: 'search',
   },
 };
 
