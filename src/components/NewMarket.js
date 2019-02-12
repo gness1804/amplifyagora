@@ -8,6 +8,7 @@ import {
   Notification,
 } from 'element-react';
 import { API, graphqlOperation } from 'aws-amplify';
+import PropTypes from 'prop-types';
 import { createMarket } from '../graphql/mutations';
 import content from '../utils/content';
 import { UserContext } from '../App';
@@ -97,6 +98,14 @@ class NewMarket extends React.Component {
   render() {
     const { showAddMarketDialog, options, name } = this.state;
     const {
+      handleSearchChange,
+      handleClearSearch,
+      searchTerm,
+      handleSearch,
+      isSearching,
+    } = this.props;
+
+    const {
       title,
       addMarketFormTitle,
       namePlaceholder,
@@ -105,9 +114,18 @@ class NewMarket extends React.Component {
       addTagLabel,
       addTagPlaceholder,
     } = content.NewMarket;
+
     const optionsElement = options.map(opt => (
       <Select.Option key={opt.value} value={opt.value} label={opt.label} />
     ));
+
+    const searchProps = {
+      handleSearchChange,
+      handleClearSearch,
+      searchTerm,
+      handleSearch,
+      isSearching,
+    };
 
     return (
       <UserContext.Consumer>
@@ -124,7 +142,7 @@ class NewMarket extends React.Component {
                 />
               </h1>
 
-              <Search />
+              <Search {...searchProps} />
             </div>
 
             <Dialog
@@ -181,3 +199,15 @@ class NewMarket extends React.Component {
 }
 
 export default NewMarket;
+
+NewMarket.defaultProps = {
+  searchTerm: '',
+};
+
+NewMarket.propTypes = {
+  handleSearchChange: PropTypes.func.isRequired,
+  handleClearSearch: PropTypes.func.isRequired,
+  searchTerm: PropTypes.string,
+  handleSearch: PropTypes.func.isRequired,
+  isSearching: PropTypes.bool.isRequired,
+};
