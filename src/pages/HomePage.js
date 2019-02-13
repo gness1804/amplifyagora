@@ -25,23 +25,25 @@ class HomePage extends React.Component {
   handleSearch = async event => {
     try {
       event.preventDefault();
+      const { searchTerm } = this.state;
       this.setState({
         isSearching: true,
       });
+      const queryObj = {
+        filter: {
+          or: [
+            { name: { match: searchTerm } },
+            { owner: { match: searchTerm } },
+            { tags: { match: searchTerm } },
+          ],
+        },
+        sort: {
+          field: 'createdAt',
+          direction: 'desc',
+        },
+      };
       const result = await API.graphql(
-        graphqlOperation(searchMarkets, {
-          filter: {
-            or: [
-              { name: { match: this.state.searchTerm } },
-              { owner: { match: this.state.searchTerm } },
-              { tags: { match: this.state.searchTerm } },
-            ],
-          },
-          sort: {
-            field: 'createdAt',
-            direction: 'desc',
-          },
-        }),
+        graphqlOperation(searchMarkets, queryObj),
       );
       this.setState({
         isSearching: false,
