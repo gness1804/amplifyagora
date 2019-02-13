@@ -31,15 +31,27 @@ class HomePage extends React.Component {
       const result = await API.graphql(
         graphqlOperation(searchMarkets, {
           filter: {
-            or: [{ name: { match: this.state.searchTerm } }],
+            or: [
+              { name: { match: this.state.searchTerm } },
+              { owner: { match: this.state.searchTerm } },
+              { tags: { match: this.state.searchTerm } },
+            ],
+          },
+          sort: {
+            field: 'createdAt',
+            direction: 'desc',
           },
         }),
       );
       this.setState({
-        isSearching: true,
+        isSearching: false,
+        searchResults: result.data.searchMarkets.items,
       });
     } catch (err) {
-      throw new Error('Oh no!');
+      throw new Error(
+        `There was an error attempting to search: ${err.message ||
+          JSON.stringify(err)}`,
+      );
     }
   };
 
