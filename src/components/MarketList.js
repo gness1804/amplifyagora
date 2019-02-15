@@ -16,7 +16,33 @@ import Error from './Error';
 import styles from '../styling';
 import content from '../utils/content';
 import { onCreateMarket } from '../graphql/subscriptions';
+
+const DefaultHeader = () => {
+  return (
+    <h2 className="header">
+      <img
+        src={content.MarketList.headerLinkIcon}
+        alt={content.MarketList.headerLinkIconAltText}
+        className="large-icon"
+      />
+      {content.MarketList.headerTextDefault}
+    </h2>
+  );
+};
+
+const SearchResultsHeader = ({ searchResultsLen }) => {
+  return (
+    <h2 className="text-green">
+      <Icon name="check" type="success" className="icon" />
+      {content.MarketList.headerTextSearch}
+      {searchResultsLen}
+    </h2>
+  );
+};
 /* eslint-enable no-unused-vars */
+SearchResultsHeader.propTypes = {
+  searchResultsLen: PropTypes.number.isRequired,
+};
 
 const MarketList = ({ searchResults }) => {
   const onNewMarket = (prevQuery, newData) => {
@@ -55,14 +81,12 @@ const MarketList = ({ searchResults }) => {
 
         return (
           <>
-            <h2 className="header">
-              <img
-                src={content.MarketList.headerLinkIcon}
-                alt={content.MarketList.headerLinkIconAltText}
-                className="large-icon"
-              />
-              {content.MarketList.headerText}
-            </h2>
+            {thereAreSearchResults() ? (
+              <SearchResultsHeader searchResultsLen={searchResults.length} />
+            ) : (
+              <DefaultHeader />
+            )}
+
             {markets.map(market => (
               <div key={market.id} className="my-2">
                 <Card bodyStyle={styles.MarketList.cardBodyStyle}>

@@ -28,7 +28,8 @@ const content = {
     shoppingCartLinkAltText: 'Shopping Cart',
     headerLinkIcon: 'https://icon.now.sh/store_mall_directory/527FFF',
     headerLinkIconAltText: 'Store icon',
-    headerText: 'Markets',
+    headerTextDefault: 'Markets',
+    headerTextSearch: 'Total Search Results: ',
   },
   Search: {
     searchInputPlaceholder: 'Search Markets...',
