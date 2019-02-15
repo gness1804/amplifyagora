@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import NewMarket from '../components/NewMarket';
 import MarketList from '../components/MarketList';
 import { searchMarkets } from '../graphql/queries';
+/* eslint-enable no-unused-vars */
 
 class HomePage extends React.Component {
   constructor(props) {

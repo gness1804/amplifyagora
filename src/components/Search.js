@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Button, Form, Input } from 'element-react';
 import * as PropTypes from 'prop-types';
 import content from '../utils/content';
+/* eslint-enable no-unused-vars */
 
 const {
   searchInputPlaceholder,

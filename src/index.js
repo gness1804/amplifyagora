@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import Amplify from 'aws-amplify';
 import ReactDOM from 'react-dom';
 import App from './App';
 import awsExports from './aws-exports';
 import * as serviceWorker from './serviceWorker';
+/* eslint-enable no-unused-vars */
 
 import 'element-theme-default';
 

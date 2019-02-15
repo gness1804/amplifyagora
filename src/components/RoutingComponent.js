@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -5,6 +6,7 @@ import HomePage from '../pages/HomePage';
 import ProfilePage from '../pages/ProfilePage';
 import MarketPage from '../pages/MarketPage';
 import Navbar from './Navbar';
+/* eslint-enable no-unused-vars */
 
 function RoutingComponent({ user, handleSignOut }) {
   return (

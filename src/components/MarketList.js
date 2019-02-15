@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Connect } from 'aws-amplify-react';
 import { graphqlOperation } from 'aws-amplify';
@@ -15,6 +16,7 @@ import Error from './Error';
 import styles from '../styling';
 import content from '../utils/content';
 import { onCreateMarket } from '../graphql/subscriptions';
+/* eslint-enable no-unused-vars */
 
 const MarketList = ({ searchResults }) => {
   const onNewMarket = (prevQuery, newData) => {

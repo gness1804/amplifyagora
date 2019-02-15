@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Menu as Nav, Icon, Button } from 'element-react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import content from '../utils/content';
+/* eslint-enable no-unused-vars */
 
 const Navbar = ({ user, handleSignOut }) => (
   <Nav mode="horizontal" theme="dark" defaultActive="1">

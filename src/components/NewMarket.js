@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import {
   Form,
@@ -13,6 +14,7 @@ import { createMarket } from '../graphql/mutations';
 import content from '../utils/content';
 import { UserContext } from '../App';
 import Search from './Search';
+/* eslint-enable no-unused-vars */
 
 const { tags: allTags } = content.NewMarket;
 

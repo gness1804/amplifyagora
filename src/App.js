@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 import React, { createContext } from 'react';
 import { Auth, Hub } from 'aws-amplify';
 import { Authenticator } from 'aws-amplify-react';
 import './App.css';
 import RoutingComponent from './components/RoutingComponent';
 import styles from './styling';
+/* eslint-enable no-unused-vars */
 
 export const UserContext = createContext();
 
