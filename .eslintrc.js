@@ -33,7 +33,7 @@ module.exports = {
     'max-len': 'off',
     'no-restricted-syntax': 'off',
     'no-underscore-dangle': 'off',
-    'no-unused-vars': 'warn',
+    'no-unused-vars': 'error',
     'arrow-parens': 'off',
     'implicit-arrow-linebreak': 'off',
     'operator-linebreak': 'off',

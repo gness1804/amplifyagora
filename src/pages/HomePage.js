@@ -58,7 +58,7 @@ class HomePage extends React.Component {
   };
 
   render() {
-    const { searchTerm, isSearching } = this.state;
+    const { searchTerm, isSearching, searchResults } = this.state;
     return (
       <>
         <NewMarket
@@ -68,7 +68,7 @@ class HomePage extends React.Component {
           handleSearch={this.handleSearch}
           isSearching={isSearching}
         />
-        <MarketList />
+        <MarketList searchResults={searchResults} />
       </>
     );
   }

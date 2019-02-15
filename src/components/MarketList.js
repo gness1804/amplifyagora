@@ -8,6 +8,7 @@ import {
   Icon,
   Tag,
 } from 'element-react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { listMarkets } from '../graphql/queries';
 import Error from './Error';
@@ -15,7 +16,7 @@ import styles from '../styling';
 import content from '../utils/content';
 import { onCreateMarket } from '../graphql/subscriptions';
 
-const MarketList = () => {
+const MarketList = ({ searchResults }) => {
   const onNewMarket = (prevQuery, newData) => {
     const { items: oldMarkets } = prevQuery.listMarkets;
     const newMarket = newData.onCreateMarket;
@@ -44,7 +45,12 @@ const MarketList = () => {
           return <Loading fullscreen />;
         }
 
-        const { items: markets } = data.listMarkets;
+        const thereAreSearchResults = () => searchResults.length > 0;
+
+        const markets = thereAreSearchResults()
+          ? searchResults
+          : data.listMarkets.items;
+
         return (
           <>
             <h2 className="header">
@@ -94,3 +100,7 @@ const MarketList = () => {
 };
 
 export default MarketList;
+
+MarketList.propTypes = {
+  searchResults: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
+};
