@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 // prettier-ignore
@@ -7,7 +8,11 @@ import {
   Icon,
   Notification,
 } from 'element-react';
+import { Link } from 'react-router-dom';
 import { getMarket } from '../graphql/queries';
+import content from '../utils/content';
+import styles from '../styling/index';
+/* eslint-enable no-unused-vars */
 
 class MarketPage extends React.Component {
   constructor(props) {
@@ -50,7 +55,33 @@ class MarketPage extends React.Component {
   };
 
   render() {
-    return <div>Market Page with id: {this.props.marketId}</div>;
+    const { market, isLoading } = this.state;
+    const {
+      MarketsPage: { backButtonText },
+    } = content;
+    const {
+      MarketsPage: { createdAtMssgStyles },
+    } = styles;
+
+    return isLoading ? (
+      <Loading fullscreen />
+    ) : (
+      <>
+        <Link className="link" to="/">
+          {backButtonText}
+        </Link>
+
+        <span className="items-center pt-2">
+          <h2 className="mb-mr">{market.name}</h2> - {market.owner}
+        </span>
+        <div className="items-center pt-2">
+          <span style={createdAtMssgStyles}>
+            <Icon name="date" className="icon" />
+            {new Date(market.createdAt).toString()}
+          </span>
+        </div>
+      </>
+    );
   }
 }
 

@@ -37,6 +37,9 @@ const content = {
     searchButtonText: 'Search',
     searchButtonIcon: 'search',
   },
+  MarketsPage: {
+    backButtonText: 'Back to All Markets',
+  },
 };
 
 export default content;

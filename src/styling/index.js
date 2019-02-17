@@ -31,6 +31,12 @@ const styles = {
       color: 'var(--lightSquidInk)',
     },
   },
+  MarketsPage: {
+    createdAtMssgStyles: {
+      color: 'var(--lightSquidInk)',
+      paddingBottom: '1em',
+    },
+  },
 };
 
 export default styles;
