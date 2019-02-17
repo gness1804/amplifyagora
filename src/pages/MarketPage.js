@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { API, graphqlOperation } from 'aws-amplify';
 // prettier-ignore
 import {
@@ -21,6 +22,7 @@ class MarketPage extends React.Component {
     this.state = {
       market: null,
       isLoading: true,
+      userIsMarketOwner: false,
     };
   }
 
@@ -36,10 +38,17 @@ class MarketPage extends React.Component {
       };
 
       const result = await API.graphql(graphqlOperation(getMarket, input));
-      this.setState({
-        market: result.data.getMarket,
-        isLoading: false,
-      });
+      this.setState(
+        {
+          market: result.data.getMarket,
+          isLoading: false,
+        },
+        () => {
+          this.setState({
+            userIsMarketOwner: this.checkMarketOwner(),
+          });
+        },
+      );
     } catch (err) {
       /* eslint-disable no-console */
       console.error(
@@ -52,6 +61,16 @@ class MarketPage extends React.Component {
       });
       /* eslint-enable no-console */
     }
+  };
+
+  checkMarketOwner = () => {
+    const {
+      user: { username },
+    } = this.props;
+    const {
+      market: { owner },
+    } = this.state;
+    return username === owner;
   };
 
   render() {
@@ -86,3 +105,8 @@ class MarketPage extends React.Component {
 }
 
 export default MarketPage;
+
+MarketPage.propTypes = {
+  marketId: PropTypes.string.isRequired,
+  user: PropTypes.shape({}).isRequired,
+};
