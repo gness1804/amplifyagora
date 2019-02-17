@@ -37,8 +37,10 @@ const content = {
     searchButtonText: 'Search',
     searchButtonIcon: 'search',
   },
-  MarketsPage: {
+  MarketPage: {
     backButtonText: 'Back to All Markets',
+    addProductText: 'Add Product',
+    productsLabel: 'Products',
   },
 };
 

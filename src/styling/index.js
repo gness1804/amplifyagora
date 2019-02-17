@@ -31,7 +31,7 @@ const styles = {
       color: 'var(--lightSquidInk)',
     },
   },
-  MarketsPage: {
+  MarketPage: {
     createdAtMssgStyles: {
       color: 'var(--lightSquidInk)',
       paddingBottom: '1em',

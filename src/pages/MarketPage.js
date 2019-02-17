@@ -13,6 +13,8 @@ import { Link } from 'react-router-dom';
 import { getMarket } from '../graphql/queries';
 import content from '../utils/content';
 import styles from '../styling/index';
+import NewProduct from '../components/NewProduct';
+import Product from '../components/Product';
 /* eslint-enable no-unused-vars */
 
 class MarketPage extends React.Component {
@@ -66,20 +68,21 @@ class MarketPage extends React.Component {
   checkMarketOwner = () => {
     const {
       user: { username },
+      user,
     } = this.props;
     const {
       market: { owner },
     } = this.state;
-    return username === owner;
+    return user ? username === owner : false;
   };
 
   render() {
-    const { market, isLoading } = this.state;
+    const { market, isLoading, userIsMarketOwner } = this.state;
     const {
-      MarketsPage: { backButtonText },
+      MarketPage: { backButtonText, addProductText, productsLabel },
     } = content;
     const {
-      MarketsPage: { createdAtMssgStyles },
+      MarketPage: { createdAtMssgStyles },
     } = styles;
 
     return isLoading ? (
@@ -99,6 +102,39 @@ class MarketPage extends React.Component {
             {new Date(market.createdAt).toString()}
           </span>
         </div>
+
+        {/* New Markets */}
+        <Tabs type="border-card" value={userIsMarketOwner ? '1' : '2'}>
+          {userIsMarketOwner && (
+            <Tabs.Pane
+              label={
+                <>
+                  <Icon name="plus" className="icon" />
+                  {addProductText}
+                </>
+              }
+              name="1"
+            >
+              <NewProduct />
+            </Tabs.Pane>
+          )}
+          {/* Products List */}
+          <Tabs.Pane
+            label={
+              <>
+                <Icon name="menu" className="icon" />
+                {productsLabel} ({market.products.items.length})
+              </>
+            }
+            name="2"
+          >
+            {/* <div className="product-list"> */}
+            {/* {market.products.items.map(product => ( */}
+            {/* <Product product={product} /> */}
+            {/* ))} */}
+            {/* </div> */}
+          </Tabs.Pane>
+        </Tabs>
       </>
     );
   }
@@ -106,7 +142,11 @@ class MarketPage extends React.Component {
 
 export default MarketPage;
 
+MarketPage.defaultProps = {
+  user: undefined,
+};
+
 MarketPage.propTypes = {
   marketId: PropTypes.string.isRequired,
-  user: PropTypes.shape({}).isRequired,
+  user: PropTypes.shape({}),
 };
