@@ -42,6 +42,17 @@ const content = {
     addProductText: 'Add Product',
     productsLabel: 'Products',
   },
+  NewProduct: {
+    addNewProductText: 'New Product',
+    addDescriptionFormLabel: 'Add Product Description',
+    addDescriptionPlaceholder: 'Description',
+    setPriceFormLabel: 'Set Product Price',
+    setPricePlaceholder: 'Price (USD)',
+    shippedOrEmailedLabel:
+      'Do You Want to Ship or Email Product to the Customer?',
+    shippedOrEmailedShipOption: 'Shipped',
+    shippedOrEmailedEmailOption: 'Emailed',
+  },
 };
 
 export default content;

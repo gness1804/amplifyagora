@@ -118,6 +118,7 @@ class MarketPage extends React.Component {
               <NewProduct />
             </Tabs.Pane>
           )}
+
           {/* Products List */}
           <Tabs.Pane
             label={
@@ -128,6 +129,7 @@ class MarketPage extends React.Component {
             }
             name="2"
           >
+            {/* will be added later */}
             {/* <div className="product-list"> */}
             {/* {market.products.items.map(product => ( */}
             {/* <Product product={product} /> */}
