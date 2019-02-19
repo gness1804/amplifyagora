@@ -52,6 +52,7 @@ const content = {
       'Do You Want to Ship or Email Product to the Customer?',
     shippedOrEmailedShipOption: 'Shipped',
     shippedOrEmailedEmailOption: 'Emailed',
+    confirmButtonText: 'Add Product',
   },
 };
 

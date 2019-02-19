@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import { PhotoPicker } from 'aws-amplify-react';
 // prettier-ignore
 import {
   Form,
@@ -35,6 +36,8 @@ class NewProduct extends React.Component {
     this.setState({ shipped: val });
   };
 
+  handleAddProduct = () => {};
+
   render() {
     const {
       NewProduct: {
@@ -46,6 +49,7 @@ class NewProduct extends React.Component {
         shippedOrEmailedLabel,
         shippedOrEmailedShipOption,
         shippedOrEmailedEmailOption,
+        confirmButtonText,
       },
     } = content;
 
@@ -89,6 +93,12 @@ class NewProduct extends React.Component {
                   {shippedOrEmailedEmailOption}
                 </Radio>
               </div>
+            </Form.Item>
+            <PhotoPicker />
+            <Form.Item>
+              <Button type="primary" onClick={this.handleAddProduct}>
+                {confirmButtonText}
+              </Button>
             </Form.Item>
           </Form>
         </>
