@@ -11,6 +11,7 @@ import {
   Progress,
 } from 'element-react';
 import content from '../utils/content';
+import styles from '../styling';
 /* eslint-disable no-unused-vars */
 
 class NewProduct extends React.Component {
@@ -52,6 +53,9 @@ class NewProduct extends React.Component {
         confirmButtonText,
       },
     } = content;
+    const {
+      NewProduct: { photoPicker },
+    } = styles;
 
     const { shipped } = this.state;
 
@@ -94,7 +98,7 @@ class NewProduct extends React.Component {
                 </Radio>
               </div>
             </Form.Item>
-            <PhotoPicker />
+            <PhotoPicker theme={photoPicker} />
             <Form.Item>
               <Button type="primary" onClick={this.handleAddProduct}>
                 {confirmButtonText}

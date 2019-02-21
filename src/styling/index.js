@@ -37,6 +37,31 @@ const styles = {
       paddingBottom: '1em',
     },
   },
+  NewProduct: {
+    photoPicker: {
+      formContainer: {
+        margin: 0,
+        padding: '0.8em',
+      },
+      formSection: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      sectionBody: {
+        margin: 0,
+        width: '250px',
+      },
+      sectionHeader: {
+        padding: '0.2em',
+        color: 'var(--darkAmazonOrange)',
+      },
+      photoPickerButton: {
+        display: 'none',
+      },
+    },
+  },
 };
 
 export default styles;
