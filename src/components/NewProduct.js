@@ -22,6 +22,8 @@ class NewProduct extends React.Component {
       description: '',
       price: '',
       shipped: false,
+      imagePreview: '',
+      imageFile: null,
     };
   }
 
@@ -31,6 +33,14 @@ class NewProduct extends React.Component {
 
   setPrice = price => {
     this.setState({ price });
+  };
+
+  setImagePreview = imagePreview => {
+    this.setState({ imagePreview });
+  };
+
+  setImageFile = imageFile => {
+    this.setState({ imageFile });
   };
 
   toggleShipped = val => {
@@ -51,13 +61,15 @@ class NewProduct extends React.Component {
         shippedOrEmailedShipOption,
         shippedOrEmailedEmailOption,
         confirmButtonText,
+        photoPickerTitle,
+        imagePreviewAltText,
       },
     } = content;
     const {
       NewProduct: { photoPicker },
     } = styles;
 
-    const { shipped } = this.state;
+    const { shipped, imagePreview } = this.state;
 
     return (
       <div className="flex-center">
@@ -98,7 +110,20 @@ class NewProduct extends React.Component {
                 </Radio>
               </div>
             </Form.Item>
-            <PhotoPicker theme={photoPicker} />
+            {imagePreview && (
+              <img
+                className="image-preview"
+                src={imagePreview}
+                alt={imagePreviewAltText}
+              />
+            )}
+            <PhotoPicker
+              theme={photoPicker}
+              title={photoPickerTitle}
+              preview="hidden"
+              onLoad={url => this.setImagePreview(url)}
+              onPick={file => this.setImageFile(file)}
+            />
             <Form.Item>
               <Button type="primary" onClick={this.handleAddProduct}>
                 {confirmButtonText}
