@@ -14,16 +14,20 @@ import content from '../utils/content';
 import styles from '../styling';
 /* eslint-disable no-unused-vars */
 
+const initialState = {
+  description: '',
+  price: '',
+  shipped: false,
+  imagePreview: '',
+  image: null,
+};
+
 class NewProduct extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      description: '',
-      price: '',
-      shipped: false,
-      imagePreview: '',
-      imageFile: null,
+      ...initialState,
     };
   }
 
@@ -39,15 +43,22 @@ class NewProduct extends React.Component {
     this.setState({ imagePreview });
   };
 
-  setImageFile = imageFile => {
-    this.setState({ imageFile });
+  setImage = image => {
+    this.setState({ image });
   };
 
   toggleShipped = val => {
     this.setState({ shipped: val });
   };
 
-  handleAddProduct = () => {};
+  handleAddProduct = () => {
+    // add the new product to the db
+    this.resetStateToDefault();
+  };
+
+  resetStateToDefault = () => {
+    this.setState({ ...initialState });
+  };
 
   render() {
     const {
@@ -69,7 +80,16 @@ class NewProduct extends React.Component {
       NewProduct: { photoPicker },
     } = styles;
 
-    const { shipped, imagePreview } = this.state;
+    // prettier-ignore
+    const {
+      description,
+      price,
+      image,
+      shipped,
+      imagePreview,
+    } = this.state;
+
+    const enableAddProductButton = () => image && description && price;
 
     return (
       <div className="flex-center">
@@ -81,7 +101,8 @@ class NewProduct extends React.Component {
                 type="text"
                 icon="information"
                 placeholder={addDescriptionPlaceholder}
-                onChange={description => this.setDescription(description)}
+                value={description}
+                onChange={_description => this.setDescription(_description)}
               />
             </Form.Item>
             <Form.Item label={setPriceFormLabel}>
@@ -89,7 +110,8 @@ class NewProduct extends React.Component {
                 type="text"
                 icon="information"
                 placeholder={setPricePlaceholder}
-                onChange={price => this.setPrice(price)}
+                value={price}
+                onChange={_price => this.setPrice(_price)}
               />
             </Form.Item>
             <Form.Item label={shippedOrEmailedLabel}>
@@ -122,10 +144,14 @@ class NewProduct extends React.Component {
               title={photoPickerTitle}
               preview="hidden"
               onLoad={url => this.setImagePreview(url)}
-              onPick={file => this.setImageFile(file)}
+              onPick={file => this.setImage(file)}
             />
             <Form.Item>
-              <Button type="primary" onClick={this.handleAddProduct}>
+              <Button
+                type="primary"
+                onClick={this.handleAddProduct}
+                disabled={!enableAddProductButton()}
+              >
                 {confirmButtonText}
               </Button>
             </Form.Item>

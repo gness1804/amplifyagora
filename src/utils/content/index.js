@@ -53,6 +53,8 @@ const content = {
     shippedOrEmailedShipOption: 'Shipped',
     shippedOrEmailedEmailOption: 'Emailed',
     confirmButtonText: 'Add Product',
+    photoPickerTitle: 'Product Image',
+    imagePreviewAltText: 'Product Preview',
   },
 };
 
